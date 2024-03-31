@@ -1,4 +1,3 @@
-import React from "react";
 import { lazy } from "react";
 
 const Main = lazy(() => import("../layout/Main"));
@@ -22,7 +21,7 @@ const routes = [
     path: "/",
     element: <Main />,
     children: [
-      { index: true, element: <HomePage /> },
+      { path: "", element: <HomePage /> },
       { path: "browse", element: <BrowsePage /> },
       { path: "product/:id", element: <ProductDetailPage /> },
       { path: "account", element: <AccountPage /> },

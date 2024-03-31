@@ -1,14 +1,11 @@
 @import "../../assets/styles/variables.scss";
 
-header {
-  background-color: $primary-dark;
+.fixed-navigation {
   width: 100%;
   position: sticky;
   top: 0;
   z-index: 1000;
-}
-
-.fixed-navigation {
+  background-color: $primary-dark;
   padding: 8px 60px;
   display: flex;
   flex-direction: row;
@@ -32,6 +29,7 @@ h1 {
   font-size: $copy-large;
   color: $white;
   padding-right: 50px;
+  cursor: pointer;
 }
 
 ul {
@@ -47,4 +45,14 @@ ul > li {
   padding: 10px;
   font-size: $copy-small;
   color: $white;
+  cursor: pointer;
+}
+
+ul > li:hover {
+  color: $hover;
+}
+
+.search-icon,
+.cart-icon {
+  width: 20px;
 }

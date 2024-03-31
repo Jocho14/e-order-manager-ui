@@ -1,4 +1,4 @@
-import React from "react";
+import "./styles.scss";
 
 const SignInPage = () => {
   return <h1>SignInPage</h1>;

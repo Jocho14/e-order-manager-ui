@@ -1,4 +1,4 @@
-import React from "react";
+import "./styles.scss";
 
 const CartPage = () => {
   return <h1>CartPage</h1>;

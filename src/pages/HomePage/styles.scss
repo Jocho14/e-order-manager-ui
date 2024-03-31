@@ -1,0 +1,12 @@
+@import "../../assets/styles/variables.scss";
+
+.home {
+  width: 100%;
+  height: 100vw;
+  background-color: $primary-dark;
+  padding: 80px 80px;
+  display: flex;
+  column-gap: 20px;
+
+  flex-wrap: wrap;
+}

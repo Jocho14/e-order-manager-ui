@@ -1,4 +1,4 @@
-import React from "react";
+import "./styles.scss";
 
 const SignUpPage = () => {
   return <h1>SignUpPage</h1>;

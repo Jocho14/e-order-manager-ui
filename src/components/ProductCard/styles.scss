@@ -1,0 +1,122 @@
+@import "../../assets/styles/variables.scss";
+
+.loading {
+  width: 100%;
+  height: 180px;
+  border-radius: calc($radius-tiny / 2);
+  object-fit: cover;
+  transition: filter 0.3s ease;
+  background-color: gray;
+  display: block;
+}
+
+.card {
+  width: 200px;
+  height: 300px;
+  background-color: $neutral;
+  padding: 5px 5px;
+  border-radius: $radius-tiny;
+  color: $text-dark;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.1);
+  }
+
+  &__image-container {
+    width: 100%;
+    height: 190px;
+  }
+
+  @keyframes placeHolderShimmer {
+    0% {
+      background-position: -468px 0;
+    }
+    100% {
+      background-position: 468px 0;
+    }
+  }
+
+  &__image-loader {
+    animation-duration: 1.25s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f6f6;
+    background: linear-gradient(
+      to right,
+      $primary-dark 8%,
+      #21183a 18%,
+      $primary-dark 33%
+    );
+    background-size: 800px 190px;
+    height: 190px;
+    position: relative;
+  }
+
+  &__image {
+    width: 100%;
+    border-radius: calc($radius-tiny / 2);
+    object-fit: cover;
+    transition: filter 0.3s ease;
+  }
+
+  &__content {
+    row-gap: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__info {
+    &-title {
+      font-size: $copy-large;
+      color: $white;
+    }
+    &-author {
+      font-size: $copy-small;
+      color: $white;
+    }
+
+    &-title,
+    &-author {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  &__details {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__rating-star-icon,
+  &__options-book-icon,
+  &__options-video-icon {
+    height: 14px;
+    padding: 0 4px;
+    transition: transform 0.3s ease;
+
+    .card:hover & {
+      transform: translateY(-2px);
+    }
+  }
+}

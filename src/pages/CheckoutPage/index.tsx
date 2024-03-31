@@ -1,4 +1,4 @@
-import React from "react";
+import "./styles.scss";
 
 const CheckoutPage = () => {
   return <h1>CheckoutPage</h1>;

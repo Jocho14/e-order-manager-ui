@@ -1,4 +1,4 @@
-import React from "react";
+import "./styles.scss";
 
 const BrowsePage = () => {
   return <h1>BrowsePage</h1>;

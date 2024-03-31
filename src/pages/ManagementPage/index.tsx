@@ -1,4 +1,4 @@
-import React from "react";
+import "./styles.scss";
 
 const ManagementPage = () => {
   return <h1>ManagementPage</h1>;

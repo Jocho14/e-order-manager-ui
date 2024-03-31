@@ -1,4 +1,4 @@
-import React from "react";
+import "./styles.scss";
 
 const AccountPage = () => {
   return <h1>AccountPage</h1>;
