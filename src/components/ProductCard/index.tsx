@@ -22,6 +22,7 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
         {!imageLoaded && <div className="card__image-loader"></div>}
         <img
           className="card__image"
+          draggable="false"
           src={props.imageUrl}
           alt={props.title}
           onLoad={() => setimageLoaded(true)}

@@ -1,30 +1,20 @@
-import "./styles.scss";
-import ProductCard from "../../components/ProductCard";
-//import CardGroup from "../../components/CardGroup";
+import CardGroup from "../../components/CardGroup";
 import data from "../../utils/data";
-
-const data1 = data[0];
-const data2 = data[1];
-const data3 = data[2];
-const data4 = data[3];
+import "./styles.scss";
 
 const HomePage = () => {
   return (
     <div className="home">
-      <ProductCard {...data1} />
-      <ProductCard {...data2} />
-      <ProductCard {...data3} />
-      <ProductCard {...data4} />
-      <ProductCard {...data2} />
-      <ProductCard {...data3} />
-      <ProductCard {...data1} />
-      <ProductCard {...data2} />
-      <ProductCard {...data3} />
-      <ProductCard {...data1} />
-      <ProductCard {...data2} />
-      <ProductCard {...data3} />
-      <ProductCard {...data1} />
-      <ProductCard {...data2} />
+      <div className="home__hero">
+        <h1 className="home__hero-title">Ebooki</h1>
+        <p className="home__hero-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+      <div className="home__content"> 
+        <CardGroup cards={data} tag={"Top 20"} />
+        <CardGroup cards={data} tag={"Top 20"} />
+        <CardGroup cards={data} tag={"Top 20"} />
+        <CardGroup cards={data} tag={"Top 20"} />
+      </div>
     </div>
   );
 };

@@ -1,0 +1,12 @@
+.card-group {
+  min-width: 100vw;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  column-gap: 20px;
+  padding-top: 10px;
+}
+
+.card-group::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar */
+}
