@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "../ProductCard";
 import { ProductCardProps } from "../ProductCard";
-import "./styles.scss"
+import "./styles.scss";
 
 interface CardGroupProps {
   cards: ProductCardProps[];
@@ -11,7 +11,7 @@ interface CardGroupProps {
 const CardGroup: React.FC<CardGroupProps> = (props) => {
   return (
     <div className="card-group-wrapper">
-      <h1 className="tag">{props.tag + " ->"}</h1>
+      <h1 className="tag">{props.tag + " →"}</h1>
       <div className="card-group">
         {props.cards
           .filter((card) => card.tag === props.tag)

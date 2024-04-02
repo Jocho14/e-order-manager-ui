@@ -39,3 +39,13 @@
     row-gap: 120px;
   }
 }
+
+@media screen and (min-width: 300px) and (max-width: 700px) {
+  .home__hero {
+    padding: 0 10% 30px 20px;
+  }
+  .home__content {
+    padding: 40px 20px;
+    row-gap: 80px;
+  }
+}

@@ -8,18 +8,18 @@ const Header = () => {
       <div className="fixed-navigation__nav">
         <h1>E-order-manager</h1>
         <ul>
-          <li>Ebooki</li>
-          <li>Audiobooki</li>
-          <li>Poradniki</li>
+          <li className="fixed-navigation__nav-link">Ebooki</li>
+          <li className="fixed-navigation__nav-link">Audiobooki</li>
+          <li className="fixed-navigation__nav-link">Poradniki</li>
         </ul>
       </div>
       <div className="fixed-navigation__action">
         <ul>
           <li>
-            <img className="search-icon" src={searchIcon} />
+            <img className="fixed-navigation__action-link" src={searchIcon} />
           </li>
           <li>
-            <img className="cart-icon" src={cartIcon} />
+            <img className="fixed-navigation__action-link" src={cartIcon} />
           </li>
         </ul>
       </div>
