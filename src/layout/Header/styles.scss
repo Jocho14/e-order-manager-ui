@@ -54,6 +54,9 @@ ul {
 }
 
 .fixed-navigation__action {
+  &-input {
+    height: 30px;
+  }
   &-link {
     width: 40px;
     padding: 10px;
