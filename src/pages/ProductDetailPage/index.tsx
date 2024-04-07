@@ -1,23 +1,26 @@
-import { useParams } from "react-router-dom";
+// import { useState } from "react";
+// import { useParams } from "react-router-dom";
 
 import useResetScroll from "../../hooks/useResetScroll";
 import ProductDetailHighlights from "../../components/ProductDetailHighlights";
-import { ProductDetailHighlightsProps } from "../../components/ProductDetailHighlights";
+//import { ProductDetailHighlightsProps } from "../../components/ProductDetailHighlights";
 
 import detailHighlightsData from "../../utils/detailHighlightsData";
 import "./styles.scss";
 
-interface ProductDetailPageProps {
-  title: string;
-  author: string;
-  highlights: ProductDetailHighlightsProps;
-  description: string;
-  tags: string[];
-}
+// interface ProductDetailPageProps {
+//   title: string;
+//   author: string;
+//   highlights: ProductDetailHighlightsProps;
+//   description: string;
+//   tags: string[];
+// }
 
-const ProductDetailPage: React.FC<ProductDetailPageProps> = (props) => {
+const ProductDetailPage = () => {
   useResetScroll();
-  const { productId } = useParams(); // TODO: use productId for data fetching
+  //const { productId } = useParams<{ productId: string }>(); // TODO: use productId for data fetching
+  //const [productDetails, setProductDetails] =
+  //useState<ProductDetailPageProps | null>(null);
 
   return (
     <div className="product-detail__wrapper">
@@ -40,13 +43,17 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = (props) => {
           </button>
         </div>
         <div className="product-detail__info">
-          <h1 className="product-detail__info-title">Tytuł{props.title}</h1>
-          <div className="product-detail__info-author">Autor{props.author}</div>
+          <h1 className="product-detail__info-title">
+            Tytuł{/*{productDetails.title}*/}
+          </h1>
+          <div className="product-detail__info-author">
+            Autor{/*{productDetails.author}*/}
+          </div>
           <div className="product-detail__info-highlights">
             <ProductDetailHighlights {...detailHighlightsData} />
           </div>
           <div className="product-detail__info-description">
-            {props.description}
+            {/* {productDetails.description} */}
             Opis: Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
             cupidatat non proident, sunt in culpa qui officia deserunt mollit

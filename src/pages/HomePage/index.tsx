@@ -1,4 +1,3 @@
-import useRestoreScroll from "../../hooks/useRestoreScroll";
 import CardGroup from "../../components/CardGroup";
 import data from "../../utils/data";
 
