@@ -1,3 +1,11 @@
+@import "../../assets/styles/variables.scss";
+
+.card-group__wrapper {
+  position: relative;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 .card-group {
   display: flex;
   flex-direction: row;
@@ -5,12 +13,19 @@
   column-gap: 20px;
   padding: 10px 20px 10px 0;
   box-sizing: content-box;
+
+  &__tag {
+    color: $white;
+    font-size: $title-small;
+  }
+
+  &__product-link {
+    text-decoration: none;
+  }
 }
 
-.card-group-wrapper {
-  position: relative;
-  overflow-x: hidden;
-  max-width: 100vw;
+.card-group::-webkit-scrollbar {
+  overflow: hidden;
 }
 
 .scroll-btn {
@@ -35,8 +50,4 @@
 
 .scroll-btn.right {
   right: 0;
-}
-
-.card-group::-webkit-scrollbar {
-  overflow: hidden;
 }

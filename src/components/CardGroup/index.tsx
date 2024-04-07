@@ -1,10 +1,10 @@
-import React from "react";
-import { useRef, useState, useEffect } from "react";
-import ProductCard from "../ProductCard";
-import { ProductCardProps } from "../ProductCard";
+import React, { useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
+import ProductCard, { ProductCardProps } from "../ProductCard";
+
 import leftArrowIcon from "../../assets/images/left-arrow-icon.svg";
 import rightArrowIcon from "../../assets/images/right-arrow-icon.svg";
-
 import "./styles.scss";
 
 interface CardGroupProps {
@@ -57,8 +57,8 @@ const CardGroup: React.FC<CardGroupProps> = (props) => {
   };
 
   return (
-    <div className="card-group-wrapper">
-      <h1 className="tag">{props.tag + " →"}</h1>
+    <div className="card-group__wrapper">
+      <h1 className="card-group__tag">{props.tag + " →"}</h1>
       {canScrollLeft && !isTouchDevice && (
         <input
           type="image"
@@ -72,7 +72,13 @@ const CardGroup: React.FC<CardGroupProps> = (props) => {
         {props.cards
           .filter((card) => card.tag === props.tag)
           .map((card) => (
-            <ProductCard key={card.id} {...card} />
+            <Link
+              className="card-group__product-link"
+              to={`/product/${card.id}`}
+              key={card.id}
+            >
+              <ProductCard {...card} />
+            </Link>
           ))}
       </div>
       {canScrollRight && !isTouchDevice && (

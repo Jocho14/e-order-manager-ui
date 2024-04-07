@@ -25,7 +25,7 @@
   flex-wrap: wrap;
 }
 
-h1 {
+.fixed-navigation__logo {
   font-size: $copy-large;
   color: $white;
   padding-right: 50px;
@@ -67,6 +67,10 @@ ul {
       hue-rotate(135deg) brightness(94%) contrast(83%);
     cursor: pointer;
   }
+}
+
+.home-link {
+  text-decoration: none;
 }
 
 @media screen and (min-width: 300px) and (max-width: 700px) {

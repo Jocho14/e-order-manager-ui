@@ -1,0 +1,41 @@
+@import "../../assets/styles/variables.scss";
+
+.highlights {
+  width: 100%;
+  border: 1px none 1px 1px solid $white;
+
+  &__list {
+    display: flex;
+    background: $primary-dark;
+    background: linear-gradient(
+      90deg,
+      $primary-dark 0%,
+      $primary-light 30%,
+      $background 60%,
+      transparent 100%
+    );
+
+    &__item {
+      color: $white;
+      display: flex;
+      flex-direction: column;
+      padding: 10px 10px;
+      border-right: 1px solid $white;
+    }
+  }
+}
+
+ul li:last-child {
+  border-right: none;
+}
+
+@media screen and (min-width: 300px) and (max-width: 1400px) {
+  .highlights__list {
+    background: linear-gradient(
+      90deg,
+      $primary-dark 0%,
+      $primary-light 50%,
+      $background 100%
+    );
+  }
+}

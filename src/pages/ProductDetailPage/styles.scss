@@ -1,0 +1,97 @@
+@import "../../assets/styles/variables.scss";
+
+.product-detail__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.product-detail__view-image__wrapper {
+  width: 100%; // Make image wrapper take up available space
+  max-width: 400px; // Constrain image wrapper max size
+  margin: 0 auto; // Center it if it's not filling the cell
+}
+
+.product-detail {
+  width: 100%;
+  color: $primary-dark;
+  padding: 80px 60px;
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  grid-auto-rows: minmax(min-content, max-content);
+  grid-gap: 30px;
+
+  &__breadcrumb-path {
+    grid-column: 1 / span 4;
+    color: black;
+    font-size: $copy-small;
+  }
+
+  &__view {
+    grid-column: 1 / span 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    row-gap: 20px;
+
+    &-image {
+      background-color: $primary-dark;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    &-add-to-cart-btn {
+      width: 140px;
+      height: 47px;
+      background-color: $primary-dark;
+      color: $white;
+      font-weight: 600;
+      border: none;
+      border-radius: $radius-medium;
+      cursor: pointer;
+    }
+
+    &-add-to-cart-btn:hover {
+      background-color: $neutral;
+    }
+  }
+
+  &__info {
+    grid-column: 5 / span 11;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    &-title {
+      font-size: $title-medium;
+    }
+
+    &-author {
+      font-size: $copy-large;
+    }
+
+    &-description {
+      max-height: 70px;
+      overflow-y: scroll;
+    }
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 1400px) {
+  .product-detail {
+    padding: 40px 20px;
+
+    &__view-image__wrapper {
+      max-width: 300px;
+    }
+
+    &__breadcrumb-path,
+    &__view,
+    &__info {
+      grid-column: 1 / -1;
+    }
+  }
+}
