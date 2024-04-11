@@ -54,12 +54,31 @@ ul {
 }
 
 .fixed-navigation__action {
+  &__list {
+    display: flex;
+    column-gap: 6px;
+  }
+
+  &__element {
+    display: flex;
+    align-items: center;
+    color: $white;
+    font-weight: 600;
+  }
+
   &-input {
     height: 30px;
   }
+
   &-link {
     width: 40px;
     padding: 10px;
+    color: $white;
+    text-decoration: none;
+  }
+
+  .login {
+    width: 100%;
   }
 
   &-link:hover {

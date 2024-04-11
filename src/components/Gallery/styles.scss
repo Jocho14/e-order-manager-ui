@@ -1,0 +1,44 @@
+.gallery {
+  --size: 80px;
+  display: grid;
+  grid-template-columns: repeat(6, var(--size));
+  grid-auto-rows: var(--size);
+  margin-bottom: var(--size);
+  place-items: start center;
+  gap: 1px;
+
+  &:has(:hover) img:not(:hover),
+  &:has(:focus) img:not(:focus) {
+    filter: brightness(0.5) contrast(0.5);
+  }
+
+  & img {
+    object-fit: cover;
+    width: calc(var(--size) * 2);
+    height: calc(var(--size) * 2);
+    clip-path: path(
+      "M 63 7 C 70 0 70 0 77 7 C 133 63 133 63 133 63 C 140 70 140 70 133 77 C 133 77 77 133 77 133 C 70 140 70 140 63 133 C 63 133 7 77 7 77 C 0 70 0 70 7 63 Z"
+    );
+    transition: clip-path 0.25s, filter 0.75s;
+    grid-column: auto / span 2;
+    border-radius: 5px;
+
+    &:nth-child(5n - 1) {
+      grid-column: 2 / span 2;
+    }
+
+    &:hover,
+    &:focus {
+      clip-path: path(
+        "M 0 0 C 0 0 140 0 140 0 C 140 0 140 70 140 70 C 140 70 140 140 140 140 C 140 140 70 140 70 140 C 70 140 70 140 0 140 C 0 140 0 70 0 70 C 0 70 0 70 0 70 Z"
+      );
+      z-index: 1;
+      transition: clip-path 0.25s, filter 0.25s;
+    }
+
+    &:focus {
+      outline: 1px dashed black;
+      outline-offset: -5px;
+    }
+  }
+}

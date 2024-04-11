@@ -18,12 +18,17 @@ const Header = () => {
         </ul>
       </div>
       <div className="fixed-navigation__action">
-        <ul>
-          <li>
+        <ul className="fixed-navigation__action__list">
+          <li className="fixed-navigation__action__element">
             <img className="fixed-navigation__action-link" src={searchIcon} />
           </li>
-          <li>
+          <li className="fixed-navigation__action__element">
             <img className="fixed-navigation__action-link" src={cartIcon} />
+          </li>
+          <li className="fixed-navigation__action__element">
+            <Link to="/auth" className="fixed-navigation__action-link login">
+              <span>Zaloguj</span>
+            </Link>
           </li>
         </ul>
       </div>

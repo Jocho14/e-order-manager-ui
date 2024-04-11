@@ -1,0 +1,36 @@
+@import "../../assets/styles/variables.scss";
+
+.sign-in-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  &__container {
+    position: relative;
+  }
+
+  &__input {
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 300px;
+    height: 54px;
+    padding: 12px;
+  }
+
+  &__label {
+    position: absolute;
+    left: 15px;
+    bottom: 43px;
+    background-color: $white;
+    padding: 0 5px;
+  }
+}
+
+.error {
+  &--label {
+    color: red;
+  }
+  &--input {
+    border: 1px solid red;
+  }
+}

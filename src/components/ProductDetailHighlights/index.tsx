@@ -1,5 +1,10 @@
 import React from "react";
 
+import starHighlightIcon from "../../assets/images/star-highlight-icon.svg";
+import stackHighlightIcon from "../../assets/images/stack-highlight-icon.svg";
+import globeHighlightIcon from "../../assets/images/globe-highlight-icon.svg";
+import bookHighlightIcon from "../../assets/images/book-highlight-icon.svg";
+import videoHighlightIcon from "../../assets/images/video-highlight-icon.svg";
 import "./styles.scss";
 
 export interface ProductDetailHighlightsProps {
@@ -19,25 +24,54 @@ const ProductDetailHighlights: React.FC<ProductDetailHighlightsProps> = (
         {props.reviewCount && (
           <li className="highlights__list__item">
             <p>{`${props.reviewCount} Ocena`}</p>
-            {props.rating}
+            <div className="highlights__list__item__stats">
+              <img
+                className="highlights__list__item__stats-icon"
+                src={starHighlightIcon}
+              />
+              {props.rating}
+            </div>
           </li>
         )}
         {props.language && (
           <li className="highlights__list__item">
             <p>Język</p>
-            {props.language}
+            <div className="highlights__list__item__stats">
+              <img
+                className="highlights__list__item__stats-icon"
+                src={globeHighlightIcon}
+              />
+              {props.language}
+            </div>
           </li>
         )}
         {props.hasVideo && (
           <li className="highlights__list__item">
             <p>Format</p>
-            has video
+            <div className="highlights__list__item__stats">
+              {props.hasVideo && (
+                <img
+                  className="highlights__list__item__stats-icon"
+                  src={videoHighlightIcon}
+                />
+              )}
+              <img
+                className="highlights__list__item__stats-icon"
+                src={bookHighlightIcon}
+              />
+            </div>
           </li>
         )}
         {props.category && (
           <li className="highlights__list__item">
             <p>Kategoria</p>
-            {props.category}
+            <div className="highlights__list__item__stats">
+              <img
+                className="highlights__list__item__stats-icon"
+                src={stackHighlightIcon}
+              />
+              {props.category}
+            </div>
           </li>
         )}
       </ul>

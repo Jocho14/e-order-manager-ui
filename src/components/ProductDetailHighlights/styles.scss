@@ -19,8 +19,19 @@
       color: $white;
       display: flex;
       flex-direction: column;
-      padding: 10px 10px;
+      row-gap: 5px;
+      padding: 10px 15px;
       border-right: 1px solid $white;
+
+      &__stats {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        column-gap: 10px;
+        &-icon {
+          max-height: 20px;
+        }
+      }
     }
   }
 }
@@ -37,5 +48,7 @@ ul li:last-child {
       $primary-light 50%,
       $background 100%
     );
+
+    overflow-x: scroll;
   }
 }

@@ -8,9 +8,9 @@
 }
 
 .product-detail__view-image__wrapper {
-  width: 100%; // Make image wrapper take up available space
-  max-width: 400px; // Constrain image wrapper max size
-  margin: 0 auto; // Center it if it's not filling the cell
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .product-detail {
@@ -74,13 +74,47 @@
     }
 
     &-description {
-      max-height: 70px;
-      overflow-y: scroll;
+      &__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      position: relative;
+      overflow: hidden;
+
+      &--collapsed {
+        max-height: 70px;
+      }
+
+      &__text-fade {
+        width: 100%;
+        height: 20px;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.5),
+          rgba(255, 255, 255, 1)
+        );
+        position: absolute;
+        bottom: 0px;
+      }
+
+      &__expand-btn {
+        z-index: 2;
+        width: 100%;
+        border-style: none;
+        font-size: $copy-small;
+        font-weight: 500;
+        color: $hover;
+        background-color: transparent;
+        cursor: pointer;
+      }
     }
   }
 }
 
-@media screen and (min-width: 300px) and (max-width: 1400px) {
+@media screen and (min-width: 300px) and (max-width: 1380px) {
   .product-detail {
     padding: 40px 20px;
 

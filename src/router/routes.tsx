@@ -11,8 +11,7 @@ const ManagementPage = lazy(() => import("../pages/ManagementPage"));
 const CartPage = lazy(() => import("../pages/CartPage"));
 const CheckoutPage = lazy(() => import("../pages/CheckoutPage"));
 
-const SignInPage = lazy(() => import("../pages/SignInPage"));
-const SignUpPage = lazy(() => import("../pages/SignUpPage"));
+const AuthPage = lazy(() => import("../pages/AuthPage"));
 
 const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
 
@@ -28,10 +27,9 @@ const routes = [
       { path: "management", element: <ManagementPage /> },
       { path: "cart", element: <CartPage /> },
       { path: "checkout", element: <CheckoutPage /> },
-      { path: "signIn", element: <SignInPage /> },
-      { path: "signUp", element: <SignUpPage /> },
     ],
   },
+  { path: "auth", element: <AuthPage /> },
   { path: "*", element: <NotFoundPage /> },
 ];
 

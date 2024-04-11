@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useState } from "react";
 // import { useParams } from "react-router-dom";
 
 import useResetScroll from "../../hooks/useResetScroll";
@@ -21,6 +21,11 @@ const ProductDetailPage = () => {
   //const { productId } = useParams<{ productId: string }>(); // TODO: use productId for data fetching
   //const [productDetails, setProductDetails] =
   //useState<ProductDetailPageProps | null>(null);
+  const [collapsed, setCollapsed] = useState<Boolean>(true);
+
+  const toggleCollapsed = () => {
+    return setCollapsed(!collapsed);
+  };
 
   return (
     <div className="product-detail__wrapper">
@@ -52,22 +57,37 @@ const ProductDetailPage = () => {
           <div className="product-detail__info-highlights">
             <ProductDetailHighlights {...detailHighlightsData} />
           </div>
-          <div className="product-detail__info-description">
-            {/* {productDetails.description} */}
-            Opis: Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum. Duis aute irure dolor
-            in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-            in culpa qui officia deserunt mollit anim id est laborum. Duis aute
-            irure dolor in reprehenderit in voluptate velit esse cillum dolore
-            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est
-            laborum.
+          <div className="product-detail__info-description__wrapper">
+            <div
+              className={`product-detail__info-description ${
+                collapsed ? "product-detail__info-description--collapsed" : ""
+              }`}
+            >
+              {/* {productDetails.description} */}
+              Opis: Duis aute irure dolor in reprehenderit in voluptate velit
+              esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+              occaecat cupidatat non proident, sunt in culpa qui officia
+              deserunt mollit anim id est laborum. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt mollit
+              anim id est laborum. Duis aute irure dolor in reprehenderit in
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+              officia deserunt mollit anim id est laborum.
+              {collapsed && (
+                <div className="product-detail__info-description__text-fade"></div>
+              )}
+            </div>
+            <button
+              className="product-detail__info-description__expand-btn"
+              onClick={toggleCollapsed}
+            >
+              {collapsed ? "Pokaż więcej ↓" : "Pokaż mniej ↑"}
+            </button>
           </div>
           <div className="product-detail__info-tags">
             #tag #tag #tag #tag
