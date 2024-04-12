@@ -6,8 +6,10 @@ const SignInForm = () => {
   //const [error, setError] = useState(false);
   const error = false; // remove (just for sucess production build)
 
+  const handleSubmit = () => {};
+
   return (
-    <div className="sign-in-form">
+    <form className="sign-in-form" onSubmit={handleSubmit}>
       <div className="sign-in-form__container">
         <label
           className={`sign-in-form__label ${error ? "error--label" : ""}`}
@@ -36,7 +38,10 @@ const SignInForm = () => {
           required
         />
       </div>
-    </div>
+      <button className="sign-in-form__submit-btn" type="submit">
+        Zaloguj się
+      </button>
+    </form>
   );
 };
 

@@ -3,6 +3,8 @@
 .sign-in-form {
   display: flex;
   flex-direction: column;
+
+  align-items: center;
   row-gap: 20px;
 
   &__container {
@@ -23,6 +25,20 @@
     bottom: 43px;
     background-color: $white;
     padding: 0 5px;
+  }
+
+  &__submit-btn {
+    width: 120px;
+    height: 50px;
+    background-color: $primary-dark;
+    color: $white;
+    border-radius: $radius-medium;
+    cursor: pointer;
+    border: none;
+  }
+
+  &__submit-btn:hover {
+    background-color: $neutral;
   }
 }
 

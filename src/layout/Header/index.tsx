@@ -20,13 +20,21 @@ const Header = () => {
       <div className="fixed-navigation__action">
         <ul className="fixed-navigation__action__list">
           <li className="fixed-navigation__action__element">
-            <img className="fixed-navigation__action-link" src={searchIcon} />
+            <img
+              className="fixed-navigation__action-link"
+              src={searchIcon}
+              alt="search"
+            />
           </li>
           <li className="fixed-navigation__action__element">
-            <img className="fixed-navigation__action-link" src={cartIcon} />
+            <img
+              className="fixed-navigation__action-link"
+              src={cartIcon}
+              alt="cart"
+            />
           </li>
           <li className="fixed-navigation__action__element">
-            <Link to="/auth" className="fixed-navigation__action-link login">
+            <Link to="/login" className="fixed-navigation__action-link login">
               <span>Zaloguj</span>
             </Link>
           </li>

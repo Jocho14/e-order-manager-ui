@@ -11,7 +11,7 @@ const ManagementPage = lazy(() => import("../pages/ManagementPage"));
 const CartPage = lazy(() => import("../pages/CartPage"));
 const CheckoutPage = lazy(() => import("../pages/CheckoutPage"));
 
-const AuthPage = lazy(() => import("../pages/AuthPage"));
+const LogInPage = lazy(() => import("../pages/LogInPage"));
 
 const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
 
@@ -29,7 +29,7 @@ const routes = [
       { path: "checkout", element: <CheckoutPage /> },
     ],
   },
-  { path: "auth", element: <AuthPage /> },
+  { path: "login", element: <LogInPage /> },
   { path: "*", element: <NotFoundPage /> },
 ];
 

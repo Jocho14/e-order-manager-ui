@@ -28,6 +28,7 @@ const ProductDetailHighlights: React.FC<ProductDetailHighlightsProps> = (
               <img
                 className="highlights__list__item__stats-icon"
                 src={starHighlightIcon}
+                alt="star"
               />
               {props.rating}
             </div>
@@ -40,6 +41,7 @@ const ProductDetailHighlights: React.FC<ProductDetailHighlightsProps> = (
               <img
                 className="highlights__list__item__stats-icon"
                 src={globeHighlightIcon}
+                alt="globe"
               />
               {props.language}
             </div>
@@ -53,11 +55,13 @@ const ProductDetailHighlights: React.FC<ProductDetailHighlightsProps> = (
                 <img
                   className="highlights__list__item__stats-icon"
                   src={videoHighlightIcon}
+                  alt="video"
                 />
               )}
               <img
                 className="highlights__list__item__stats-icon"
                 src={bookHighlightIcon}
+                alt="book"
               />
             </div>
           </li>
@@ -69,6 +73,7 @@ const ProductDetailHighlights: React.FC<ProductDetailHighlightsProps> = (
               <img
                 className="highlights__list__item__stats-icon"
                 src={stackHighlightIcon}
+                alt="stack"
               />
               {props.category}
             </div>

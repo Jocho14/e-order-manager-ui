@@ -1,9 +1,10 @@
 @import "../../assets/styles/variables.scss";
 
-.auth {
+.log-in {
   width: 100%;
   height: 100vh;
   display: flex;
+  position: relative;
 
   &__close-link {
     position: absolute;
@@ -33,8 +34,8 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      row-gap: 100px;
-      position: relative;
+      row-gap: 80px;
+      padding-bottom: 160px;
     }
 
     // Modifier for the right section
@@ -98,6 +99,29 @@
     }
 
     .form-action {
+    }
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 1000px) {
+  .log-in {
+    &__section {
+      &--left {
+        display: none;
+      }
+
+      &--right {
+        width: 100%;
+      }
+    }
+
+    &__close-link {
+      filter: brightness(0) saturate(100%);
+    }
+
+    &__close-link:hover {
+      filter: brightness(0) saturate(100%) invert(16%) sepia(25%) saturate(403%)
+        hue-rotate(180deg) brightness(95%) contrast(85%);
     }
   }
 }

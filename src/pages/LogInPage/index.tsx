@@ -9,25 +9,25 @@ import galleryData from "../../utils/galleryData";
 import leftArrowCircleIcon from "../../assets/images/left-arrow-circle-icon.svg";
 import "./styles.scss";
 
-const AuthPage = () => {
+const LogInPage = () => {
   const [activeForm, setActiveForm] = useState("signin");
 
   return (
-    <div className="auth">
-      <div className="auth__section auth__section--left">
-        <Link to="/">
-          <img className="auth__close-link" src={leftArrowCircleIcon} />
-        </Link>
-        <div className="auth__info">
-          <h3 className="auth__title">E-order-manager</h3>
-          <p className="auth__paragraph">Czytaj, oglądaj, inspiruj się!</p>
+    <div className="log-in">
+      <Link to="/">
+        <img className="log-in__close-link" src={leftArrowCircleIcon} />
+      </Link>
+      <div className="log-in__section log-in__section--left">
+        <div className="log-in__info">
+          <h3 className="log-in__title">E-order-manager</h3>
+          <p className="log-in__paragraph">Czytaj, oglądaj, inspiruj się!</p>
         </div>
-        <div className="auth__gallery">
+        <div className="log-in__gallery">
           <Gallery images={galleryData} />
         </div>
       </div>
-      <div className="auth__section auth__section--right">
-        <div className="auth__form">
+      <div className="log-in__section log-in__section--right">
+        <div className="log-in__form">
           <div className="form-switch">
             <button
               className={`form-switch__btn form-switch__btn--sign-in ${
@@ -56,4 +56,4 @@ const AuthPage = () => {
   );
 };
 
-export default AuthPage;
+export default LogInPage;
