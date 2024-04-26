@@ -1,15 +1,38 @@
-//import { useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import login from "../../services/auth.ts";
 
 import "./styles.scss";
 
 const SignInForm = () => {
-  //const [error, setError] = useState(false);
-  const error = false; // remove (just for sucess production build)
+  const navigate = useNavigate();
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = () => {};
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (event: any) => {
+    event.preventDefault();
+    setLoading(true);
+    let loginSuccessful = false;
+    try {
+      await login(email, password);
+      loginSuccessful = true;
+    } catch (error) {
+      setError(true);
+      console.log("FFFAILEDD");
+    } finally {
+      if (loginSuccessful) {
+        navigate("/");
+      }
+      setLoading(false);
+    }
+  };
 
   return (
-    <form className="sign-in-form" onSubmit={handleSubmit}>
+    <form className={"sign-in-form"} onSubmit={handleSubmit}>
       <div className="sign-in-form__container">
         <label
           className={`sign-in-form__label ${error ? "error--label" : ""}`}
@@ -21,6 +44,8 @@ const SignInForm = () => {
           className={`sign-in-form__input ${error ? "error--input" : ""}`}
           id="email"
           type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
       </div>
@@ -35,11 +60,22 @@ const SignInForm = () => {
           className={`sign-in-form__input ${error ? "error--input" : ""}`}
           id="password"
           type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
       </div>
       <button className="sign-in-form__submit-btn" type="submit">
-        Zaloguj się
+        {loading ? (
+          <div className="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        ) : (
+          "Zaloguj się"
+        )}
       </button>
     </form>
   );

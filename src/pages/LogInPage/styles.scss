@@ -22,7 +22,6 @@
   &__section {
     width: 50%;
 
-    // Modifier for the left section
     &--left {
       background-color: $hover;
       background: linear-gradient(
@@ -38,7 +37,6 @@
       padding-bottom: 160px;
     }
 
-    // Modifier for the right section
     &--right {
       display: flex;
       align-items: center;
@@ -63,18 +61,17 @@
     font-size: $title-medium;
   }
 
-  &__gallery {
-  }
-
   &__form {
     display: flex;
     flex-direction: column;
     row-gap: 50px;
+
     .form-switch {
       display: flex;
       justify-content: center;
       border-bottom: 1px solid #b1a6a6;
       width: auto;
+
       &__btn {
         padding: 20px 40px;
         border-style: none;
@@ -82,23 +79,11 @@
         color: #b1a6a6;
         cursor: pointer;
 
-        &--sign-in {
-        }
-
-        &--sign-up {
-        }
-
         &--active {
           border-bottom: 1px solid black;
           color: black;
         }
       }
-    }
-
-    .form-content {
-    }
-
-    .form-action {
     }
   }
 }
