@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import login from "../../services/auth.ts";
+import { useAuth } from "../../context/AuthContext";
 
 import "./styles.scss";
 
@@ -13,7 +13,9 @@ const SignInForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (event: any) => {
+  const { login } = useAuth();
+
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setLoading(true);
     let loginSuccessful = false;

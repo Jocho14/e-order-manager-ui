@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 
+import { useAuth } from "../../context/AuthContext";
+
 import searchIcon from "../../assets/images/search-icon.svg";
 import cartIcon from "../../assets/images/cart-icon.svg";
+import userIcon from "../../assets/images/user-icon.svg";
 import "./styles.scss";
 
 const Header = () => {
+  const { user } = useAuth();
+
   return (
     <nav className="fixed-navigation">
       <div className="fixed-navigation__nav">
@@ -34,9 +39,17 @@ const Header = () => {
             />
           </li>
           <li className="fixed-navigation__action__element">
-            <Link to="/login" className="fixed-navigation__action-link login">
-              <span>Zaloguj</span>
-            </Link>
+            {user ? (
+              <img
+                className="fixed-navigation__action-link"
+                src={userIcon}
+                alt="user"
+              />
+            ) : (
+              <Link to="/login" className="fixed-navigation__action-link login">
+                <span>Zaloguj</span>
+              </Link>
+            )}
           </li>
         </ul>
       </div>
