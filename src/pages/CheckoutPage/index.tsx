@@ -1,7 +1,13 @@
+import CheckoutForm from "../../components/CheckoutForm";
+
 import "./styles.scss";
 
 const CheckoutPage = () => {
-  return <h1>CheckoutPage</h1>;
+  return (
+    <div>
+      <CheckoutForm />
+    </div>
+  );
 };
 
 export default CheckoutPage;

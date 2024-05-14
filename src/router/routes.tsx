@@ -10,6 +10,8 @@ const ManagementPage = lazy(() => import("../pages/ManagementPage"));
 
 const CartPage = lazy(() => import("../pages/CartPage"));
 const CheckoutPage = lazy(() => import("../pages/CheckoutPage"));
+const ReturnPage = lazy(() => import("../pages/ReturnPage"));
+const SuccessPage = lazy(() => import("../pages/SuccessPage"));
 
 const LogInPage = lazy(() => import("../pages/LogInPage"));
 
@@ -27,6 +29,8 @@ const routes = [
       { path: "management", element: <ManagementPage /> },
       { path: "cart", element: <CartPage /> },
       { path: "checkout", element: <CheckoutPage /> },
+      { path: "return", element: <ReturnPage /> },
+      { path: "success", element: <SuccessPage email="" /> },
     ],
   },
   { path: "login", element: <LogInPage /> },
