@@ -1,0 +1,42 @@
+@import "../../assets/styles/variables.scss";
+
+.remove-btn {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  display: flex; /* zmienione z grid na flex */
+  justify-content: center; /* wyśrodkowanie poziome */
+  align-items: center; /* wyśrodkowanie pionowe */
+  width: 70px;
+  height: 27px;
+  padding: 5px;
+  background-color: $primary-dark;
+  color: $white;
+  font-weight: 600;
+  border: none;
+  border-radius: $radius-medium;
+  cursor: pointer;
+  text-align: center;
+}
+
+.cart {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.item {
+  display: flex; //
+  align-items: center; //
+  gap: 20px; //
+  margin-top: 9px;
+  margin-bottom: 9px;
+}
+
+.product-image {
+  width: 100px; /* Przykładowa szerokość, dostosuj według potrzeb */
+  height: auto; /* Zachowaj proporcje obrazu */
+  border-radius: $radius-small; /* Lekko zaokrąglone rogi */
+}
+
+.remove-btn:hover {
+  background-color: $neutral;
+}

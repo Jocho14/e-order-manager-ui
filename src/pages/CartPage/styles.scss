@@ -1,0 +1,44 @@
+@import "../../assets/styles/variables.scss";
+
+.empty {
+  margin-top: 100px;
+  text-align: center;
+  margin-bottom: 600px;
+  font-size: 23px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.buy {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  display: flex; /* zmienione z grid na flex */
+  justify-content: center; /* wyśrodkowanie poziome */
+  align-items: center; /* wyśrodkowanie pionowe */
+  width: 194px;
+  height: 40px;
+  padding: 5px;
+  background-color: #082737;
+  color: $white;
+  font-weight: 600;
+  border: none;
+  border-radius: $radius-medium;
+  cursor: pointer;
+  text-align: center;
+}
+
+.buy:hover {
+  background-color: $neutral;
+}
+
+.sum {
+  font-size: 27px;
+  margin-top: 20px;
+  margin-bottom: -3px;
+}
+
+.cart {
+  margin-bottom: 300px;
+}

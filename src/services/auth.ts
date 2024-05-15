@@ -34,6 +34,7 @@ export const validateSession = async (): Promise<User | null> => {
     }
 
     const userData = await response.json();
+
     return { name: userData.name };
   } catch (error) {
     console.error("Session validation failed:", error);

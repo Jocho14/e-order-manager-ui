@@ -1,28 +1,45 @@
-import { useState } from "react";
-// import { useParams } from "react-router-dom";
-
+import { useState, useContext } from "react";
+import { useParams } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 import useResetScroll from "../../hooks/useResetScroll";
 import ProductDetailHighlights from "../../components/ProductDetailHighlights";
 //import { ProductDetailHighlightsProps } from "../../components/ProductDetailHighlights";
+import data from "../../utils/data";
 
 import detailHighlightsData from "../../utils/detailHighlightsData";
 import "./styles.scss";
 
-// interface ProductDetailPageProps {
-//   title: string;
-//   author: string;
-//   highlights: ProductDetailHighlightsProps;
-//   description: string;
-//   tags: string[];
-// }
+interface ProductDetailPageProps {
+  product: {
+    id: string;
+    imageUrl: string;
+    title: string;
+    author: string;
+    rating: number;
+    hasVideo: boolean;
+    tag: string;
+    price: number; // Dodanie ceny
+  };
+  productDetails?: {
+    title: string;
+    author: string;
+    description: string;
+    tags: string[];
+    price: number; // Dodanie ceny
+  };
+}
 
 const ProductDetailPage = () => {
   useResetScroll();
-  //const { productId } = useParams<{ productId: string }>(); // TODO: use productId for data fetching
+  const { productId } = useParams<{ productId: string }>();
   //const [productDetails, setProductDetails] =
   //useState<ProductDetailPageProps | null>(null);
+  const productDetails = data.find(
+    (product) => product.id === Number(productId)
+  );
+  const cart = useContext(CartContext);
   const [collapsed, setCollapsed] = useState<Boolean>(true);
-
+  const productQuantity = 1;
   const toggleCollapsed = () => {
     return setCollapsed(!collapsed);
   };
@@ -43,7 +60,10 @@ const ProductDetailPage = () => {
               alt="product image"
             />
           </div>
-          <button className="product-detail__view-add-to-cart-btn">
+          <button
+            onClick={() => productId && cart.addOneToCart(Number(productId))}
+            className="product-detail__view-add-to-cart-btn"
+          >
             Dodaj do koszyka
           </button>
         </div>

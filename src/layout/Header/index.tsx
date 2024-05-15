@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { useAuth } from "../../context/AuthContext";
+import { CartContext } from "../../context/CartContext";
 
 import searchIcon from "../../assets/images/search-icon.svg";
 import cartIcon from "../../assets/images/cart-icon.svg";
@@ -9,6 +11,7 @@ import "./styles.scss";
 
 const Header = () => {
   const { user } = useAuth();
+  const { productsCount } = useContext(CartContext);
 
   return (
     <nav className="fixed-navigation">
@@ -32,11 +35,13 @@ const Header = () => {
             />
           </li>
           <li className="fixed-navigation__action__element">
-            <img
-              className="fixed-navigation__action-link"
-              src={cartIcon}
-              alt="cart"
-            />
+            <Link
+              to="/cart"
+              className="fixed-navigation__action-link cart-container"
+            >
+              <img src={cartIcon} className="cart-icon" />
+              <span className="product-count">({productsCount})</span>
+            </Link>
           </li>
           <li className="fixed-navigation__action__element">
             {user ? (
