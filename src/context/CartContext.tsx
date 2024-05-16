@@ -1,29 +1,22 @@
 import { createContext, useState, ReactNode, useEffect } from "react";
 
+import { CartProductProps } from "../components/CartProduct";
+
 import data from "../utils/data";
 
-interface CartProduct {
-  id: number;
-  price: number;
-  image: string;
-  name: string;
-}
-
 interface CartContextInterface {
-  items: CartProduct[];
-  productsCount: number;
-  addOneToCart: (id: number) => void;
-  removeOneFromCart: (id: number) => void;
-  deleteFromCart: (id: number) => void;
+  products: CartProductProps[];
+  cartCount: number;
+  add: (id: number) => boolean;
+  remove: (id: number) => void;
   getTotalCost: () => number;
 }
 
 const defaultContextValue: CartContextInterface = {
-  items: [],
-  productsCount: 0,
-  addOneToCart: (id: number) => {},
-  removeOneFromCart: (id: number) => {},
-  deleteFromCart: (id: number) => {},
+  products: [],
+  cartCount: 0,
+  add: () => false,
+  remove: () => {},
   getTotalCost: () => 0,
 };
 
@@ -34,71 +27,59 @@ interface CartProviderProps {
   children: ReactNode;
 }
 
-export function CartProvider({ children }: CartProviderProps) {
-  const [cartProducts, setCartProducts] = useState<CartProduct[]>([]);
+export const CartProvider = ({ children }: CartProviderProps) => {
+  const [cartProducts, setCartProducts] = useState<CartProductProps[]>([]);
 
   useEffect(() => {
-    const newProductsCount = cartProducts.reduce((sum) => sum + 1, 0);
-    setProductsCount(newProductsCount);
+    const newcartCount = cartProducts.reduce(
+      (currentCount) => currentCount + 1,
+      0
+    );
+    setcartCount(newcartCount);
   }, [cartProducts]);
 
-  const [productsCount, setProductsCount] = useState(0);
+  const [cartCount, setcartCount] = useState(0);
 
-  function addOneToCart(id: number) {
-    const existingProduct = cartProducts.find((product) => product.id === id);
-    if (existingProduct) {
-      setCartProducts(
-        cartProducts.map((product) =>
-          product.id === id ? { ...product, quantity: 1 } : product
-        )
-      );
+  const add = (id: number): boolean => {
+    const product = cartProducts.find((cartProduct) => cartProduct.id === id);
+    if (!!product) {
+      return false;
     } else {
       const productToAdd = data.find((product) => product.id === id);
       if (productToAdd) {
-        const newProduct: CartProduct = {
+        const newProduct: CartProductProps = {
           id: productToAdd.id,
-          price: 20,
+          price: productToAdd.price,
           name: productToAdd.title,
-          image: productToAdd.imageUrl,
+          imageUrl: productToAdd.imageUrl,
         };
         setCartProducts([...cartProducts, newProduct]);
       }
+      return true;
     }
-  }
+  };
 
-  function removeOneFromCart(id: number) {
-    setCartProducts(
-      cartProducts.reduce((acc, product) => {
-        if (product.id === id) {
-        } else {
-          acc.push(product);
-        }
-        return acc;
-      }, [] as CartProduct[])
-    );
-  }
-
-  function deleteFromCart(id: number) {
+  const remove = (id: number) => {
     setCartProducts(cartProducts.filter((product) => product.id !== id));
-  }
+  };
 
-  function getTotalCost() {
-    return cartProducts.reduce((total, product) => {
-      return total + product.price;
+  const getTotalCost = () => {
+    return cartProducts.reduce((currentCost, product) => {
+      return currentCost + product.price;
     }, 0);
-  }
+  };
 
   const contextValue = {
-    items: cartProducts,
-    productsCount,
-    addOneToCart,
-    removeOneFromCart,
-    deleteFromCart,
+    products: cartProducts,
+    cartCount,
+    add,
+    remove,
     getTotalCost,
   };
 
   return (
     <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
   );
-}
+};
+
 export default CartProvider;

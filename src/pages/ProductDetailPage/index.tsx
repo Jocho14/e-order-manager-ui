@@ -1,12 +1,13 @@
 import { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+
 import { CartContext } from "../../context/CartContext";
 import useResetScroll from "../../hooks/useResetScroll";
+import PopupButton from "../../components/PopupButton";
 import ProductDetailHighlights from "../../components/ProductDetailHighlights";
-//import { ProductDetailHighlightsProps } from "../../components/ProductDetailHighlights";
+import detailHighlightsData from "../../utils/detailHighlightsData";
 import data from "../../utils/data";
 
-import detailHighlightsData from "../../utils/detailHighlightsData";
 import "./styles.scss";
 
 interface ProductDetailPageProps {
@@ -38,8 +39,10 @@ const ProductDetailPage = () => {
     (product) => product.id === Number(productId)
   );
   const cart = useContext(CartContext);
+
+  const [addToCartSuccess, setAddToCartSuccess] = useState(false);
   const [collapsed, setCollapsed] = useState<Boolean>(true);
-  const productQuantity = 1;
+
   const toggleCollapsed = () => {
     return setCollapsed(!collapsed);
   };
@@ -60,12 +63,18 @@ const ProductDetailPage = () => {
               alt="product image"
             />
           </div>
-          <button
-            onClick={() => productId && cart.addOneToCart(Number(productId))}
+          <PopupButton
+            onClick={() =>
+              productId && setAddToCartSuccess(cart.add(Number(productId)))
+            }
+            label={"Dodaj do koszyka"}
+            message={
+              addToCartSuccess
+                ? "Dodano do koszyka"
+                : "Produkt znajduje się w koszyku"
+            }
             className="product-detail__view-add-to-cart-btn"
-          >
-            Dodaj do koszyka
-          </button>
+          />
         </div>
         <div className="product-detail__info">
           <h1 className="product-detail__info-title">

@@ -7,32 +7,47 @@ import CartProduct from "../../components/CartProduct";
 import "./styles.scss";
 
 const CartPage = () => {
-  const { items, getTotalCost } = useContext(CartContext);
-  const productsCount = items.reduce((acc) => acc + 1, 0);
+  const { products, cartCount, getTotalCost } = useContext(CartContext);
   const navigate = useNavigate();
 
   return (
-    <div className="cart">
-      {productsCount > 0 ? (
-        <>
-          <h1 className="title">Przedmioty w koszyku:</h1>
-          {items.map((currentProduct) => (
-            // <h1 key={currentProduct.id}>{currentProduct.id} {currentProduct.title} ({currentProduct.quantity} x {currentProduct.price}zł)</h1>
-            <CartProduct
-              key={currentProduct.id}
-              id={currentProduct.id}
-              price={20}
-            ></CartProduct>
-          ))}
-
-          <h1 className="sum">Suma: {getTotalCost().toFixed(2)} zł</h1>
-
-          <button className="buy" onClick={() => navigate("/checkout")}>
-            Przejdź do płatności
-          </button>
-        </>
+    <div className="cart__wrapper">
+      {cartCount > 0 ? (
+        <div className="cart__container">
+          <h1 className="cart__title">Koszyk</h1>
+          <div className="cart__headers">
+            <h4>Szczegóły</h4>
+            <h4>{""}</h4>
+            <h4>Cena</h4>
+          </div>
+          <div className="cart__content">
+            <div className="content__products">
+              {products.map((currentProduct) => (
+                <CartProduct
+                  key={currentProduct.id}
+                  id={currentProduct.id}
+                  price={currentProduct.price}
+                  imageUrl={currentProduct.imageUrl}
+                  name={currentProduct.name}
+                ></CartProduct>
+              ))}
+            </div>
+            <div className="content__finalize">
+              <h1>Podsumowanie</h1>
+              <h2 className="finalize__sum">
+                Suma: {getTotalCost().toFixed(2)} zł
+              </h2>
+              <button
+                className="finalize__checkout-btn"
+                onClick={() => navigate("/checkout")}
+              >
+                Przejdź do płatności
+              </button>
+            </div>
+          </div>
+        </div>
       ) : (
-        <h1 className="empty">Koszyk jest pusty</h1>
+        <h1 className="cart__empty">Koszyk jest pusty</h1>
       )}
     </div>
   );

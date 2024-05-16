@@ -6,11 +6,11 @@ import { CartContext } from "../../context/CartContext";
 import "./styles.scss";
 
 const CheckoutPage = () => {
-  const { items } = useContext(CartContext);
+  const { products } = useContext(CartContext);
 
   return (
     <div>
-      <CheckoutForm items={items} />
+      <CheckoutForm products={products} />
     </div>
   );
 };

@@ -3,9 +3,11 @@ import { CartContext } from "../../context/CartContext";
 import data from "../../utils/data"; // Upewnij się, że ścieżka do danych jest poprawna
 import "./styles.scss";
 
-interface CartProductProps {
+export interface CartProductProps {
   id: number;
   price: number;
+  imageUrl: string;
+  name: string;
 }
 
 function CartProduct(props: CartProductProps) {
@@ -20,24 +22,23 @@ function CartProduct(props: CartProductProps) {
 
   return (
     <>
-      <div className="item">
+      <div className="cart-product__container">
         <img
           src={productData.imageUrl}
           alt={productData.title}
-          className="product-image"
+          className="cart-product__image"
         />
-        <div className="product-details">
-          <h3>{productData.title}</h3>
-          <p>Cena: {(20).toFixed(2)} zł</p>
-          {/* <p>Cena: {productData.price.toFixed(2)} zł</p> */}
+        <div className="cart-product__details">
+          <h3 className="details__title">{productData.title}</h3>
+
+          <h3 className="details__info">Ebook + film</h3>
+
           <button
-            onClick={() => cart.deleteFromCart(id)}
-            className="remove-btn"
-          >
-            Usuń
-          </button>
-          <hr />
+            onClick={() => cart.remove(id)}
+            className="details__remove-btn"
+          ></button>
         </div>
+        <p className="cart-product__price">{productData.price.toFixed(2)} zł</p>
       </div>
     </>
   );

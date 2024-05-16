@@ -56,33 +56,26 @@ ul {
 .fixed-navigation__action {
   &__list {
     display: flex;
-    column-gap: 6px;
+    align-items: center;
+    column-gap: 20px;
   }
 
   &__element {
     width: 100%;
-    display: flex;
-    align-items: center;
     color: $white;
-    font-weight: 600;
   }
 
   &-input {
     height: 30px;
   }
 
-  &-link {
-    height: 40px;
-    padding: 10px;
+  &-icon {
+    height: 30px;
     color: $white;
     text-decoration: none;
   }
 
-  .login {
-    width: 100%;
-  }
-
-  &-link:hover {
+  &-icon:hover {
     filter: brightness(0) saturate(100%) invert(69%) sepia(6%) saturate(1777%)
       hue-rotate(135deg) brightness(94%) contrast(83%);
     cursor: pointer;
@@ -94,13 +87,18 @@ ul {
 }
 
 .cart-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  position: relative;
 }
 
-.cart-icon {
-  height: 25px;
+.product-count {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -42%);
+  font-size: $copy-small;
+  font-weight: 500;
+  color: $white;
+  pointer-events: none;
 }
 
 @media screen and (min-width: 300px) and (max-width: 700px) {
