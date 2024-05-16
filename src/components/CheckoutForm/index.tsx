@@ -1,11 +1,11 @@
-import { useCallback, useContext, useEffect } from "react";
+import { useCallback } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import {
   EmbeddedCheckout,
   EmbeddedCheckoutProvider,
 } from "@stripe/react-stripe-js";
 
-import { CartContext } from "../../context/CartContext";
+// import { CartContext } from "../../context/CartContext";
 import { createCheckoutSession } from "../../services/payment";
 
 import "./styles.scss";

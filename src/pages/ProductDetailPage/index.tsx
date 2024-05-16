@@ -6,38 +6,38 @@ import useResetScroll from "../../hooks/useResetScroll";
 import PopupButton from "../../components/PopupButton";
 import ProductDetailHighlights from "../../components/ProductDetailHighlights";
 import detailHighlightsData from "../../utils/detailHighlightsData";
-import data from "../../utils/data";
+// import data from "../../utils/data";
 
 import "./styles.scss";
 
-interface ProductDetailPageProps {
-  product: {
-    id: string;
-    imageUrl: string;
-    title: string;
-    author: string;
-    rating: number;
-    hasVideo: boolean;
-    tag: string;
-    price: number; // Dodanie ceny
-  };
-  productDetails?: {
-    title: string;
-    author: string;
-    description: string;
-    tags: string[];
-    price: number; // Dodanie ceny
-  };
-}
+// interface ProductDetailPageProps {
+//   product: {
+//     id: string;
+//     imageUrl: string;
+//     title: string;
+//     author: string;
+//     rating: number;
+//     hasVideo: boolean;
+//     tag: string;
+//     price: number; // Dodanie ceny
+//   };
+//   productDetails?: {
+//     title: string;
+//     author: string;
+//     description: string;
+//     tags: string[];
+//     price: number; // Dodanie ceny
+//   };
+// }
 
 const ProductDetailPage = () => {
   useResetScroll();
   const { productId } = useParams<{ productId: string }>();
   //const [productDetails, setProductDetails] =
   //useState<ProductDetailPageProps | null>(null);
-  const productDetails = data.find(
-    (product) => product.id === Number(productId)
-  );
+  // const productDetails = data.find(
+  //   (product) => product.id === Number(productId)
+  // );
   const cart = useContext(CartContext);
 
   const [addToCartSuccess, setAddToCartSuccess] = useState(false);
