@@ -16,7 +16,7 @@ const stripePromise = loadStripe(
 
 const CheckoutForm = (props: any) => {
   const fetchClientSecret = useCallback(
-    () => createCheckoutSession(props.items),
+    () => createCheckoutSession(props.products),
     []
   );
   const options = { fetchClientSecret };

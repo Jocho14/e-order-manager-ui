@@ -1,6 +1,6 @@
-// const STRIPE_SERVER_URL = "http://localhost:4242";
-const STRIPE_SERVER_URL =
-  "https://e-order-manager-stripe-server.azurewebsites.net";
+const STRIPE_SERVER_URL = "http://localhost:4242";
+// const STRIPE_SERVER_URL =
+//   "https://e-order-manager-stripe-server.azurewebsites.net";
 
 interface Product {
   id: number;

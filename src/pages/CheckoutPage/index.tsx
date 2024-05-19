@@ -7,6 +7,7 @@ import "./styles.scss";
 
 const CheckoutPage = () => {
   const { products } = useContext(CartContext);
+  console.log("checkout page products: ", products);
 
   return (
     <div>
