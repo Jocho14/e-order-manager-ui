@@ -1,6 +1,8 @@
-const BACKEND_URL = "http://localhost:8080";
-
 import { User } from "../context/AuthContext";
+import { BACKEND_DEV_URL } from "../constants/apiUrl";
+import { BACKEND_PRODUCTION_URL } from "../constants/apiUrl";
+
+const BACKEND_URL = BACKEND_DEV_URL;
 
 export const login = async (email: string, password: string): Promise<void> => {
   try {
@@ -27,7 +29,6 @@ export const validateSession = async (): Promise<User | null> => {
     const response = await fetch(`${BACKEND_URL}/api/auth/validate-session`, {
       credentials: "include",
     });
-    console.log(response);
 
     if (!response.ok) {
       throw new Error("Session not valid");

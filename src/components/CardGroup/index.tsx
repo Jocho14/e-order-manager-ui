@@ -7,7 +7,7 @@ import leftArrowIcon from "../../assets/images/left-arrow-icon.svg";
 import rightArrowIcon from "../../assets/images/right-arrow-icon.svg";
 import "./styles.scss";
 
-interface CardGroupProps {
+export interface CardGroupProps {
   cards: ProductCardProps[];
   tag: string;
 }

@@ -1,0 +1,20 @@
+@import "../../assets/styles/variables.scss";
+
+.checkout {
+  min-height: 100vh;
+
+  &__back-link {
+    text-decoration: none;
+  }
+
+  &__back-arrow {
+    width: 35px;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+  &__back-arrow:hover {
+    filter: brightness(0) saturate(100%) invert(13%) sepia(1%) saturate(3292%)
+      hue-rotate(316deg) brightness(98%) contrast(74%);
+  }
+}
