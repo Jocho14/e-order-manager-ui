@@ -8,7 +8,7 @@ import "./styles.scss";
 export interface ProductCardProps {
   id: number;
   imageUrl: string;
-  title: string;
+  name: string;
   // author: string;
   rating: number;
   // hasVideo: boolean;
@@ -25,14 +25,14 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
           className="card__image"
           draggable="false"
           src={props.imageUrl}
-          alt={props.title}
+          alt={props.name}
           onLoad={() => setimageLoaded(true)}
           style={{ display: imageLoaded ? "block" : "none" }}
         />
       </div>
       <div className="card__content">
         <div className="card__info">
-          <div className="card__info-title">{props.title}</div>
+          <div className="card__info-title">{props.name}</div>
           {/* <div className="card__info-author">- {props.author}</div> */}
         </div>
 

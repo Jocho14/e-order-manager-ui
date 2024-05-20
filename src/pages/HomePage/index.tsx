@@ -14,20 +14,19 @@ const HomePage = () => {
     const fetchEbooks = async () => {
       try {
         const allEbooks = await getAll();
-        console.log("shit ebooks: ", allEbooks);
 
         if (allEbooks !== null) {
           const cardGroupProps: CardGroupProps = {
             cards: allEbooks.map((ebook: any) => ({
               id: ebook.id,
               imageUrl: ebook.image,
-              title: ebook.title,
+              name: ebook.title,
               rating: ebook.rating,
               tag: ebook.tag, // Ensure the tag is included
             })),
             tag: "Fantasy", // Or another appropriate tag based on your needs
           };
-          console.log("shit ebooks state", cardGroupProps.cards);
+
           setEbooks(cardGroupProps.cards);
         }
       } catch (err) {

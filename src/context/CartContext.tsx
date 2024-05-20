@@ -1,6 +1,7 @@
 import { createContext, useState, ReactNode, useEffect } from "react";
 
 import { CartProductProps } from "../components/CartProduct";
+import { get } from "../services/ebook";
 
 import data from "../utils/data";
 
@@ -40,18 +41,18 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 
   const [cartCount, setcartCount] = useState(0);
 
-  const add = (id: number): boolean => {
+  const add = async (id: number): Promise<boolean> => {
     const product = cartProducts.find((cartProduct) => cartProduct.id === id);
     if (!!product) {
       return false;
     } else {
-      const productToAdd = data.find((product) => product.id === id);
+      const productToAdd = await get(id);
       if (productToAdd) {
         const newProduct: CartProductProps = {
           id: productToAdd.id,
           price: productToAdd.price,
           title: productToAdd.title,
-          image: productToAdd.imageUrl,
+          image: productToAdd.image,
         };
         setCartProducts([...cartProducts, newProduct]);
       }

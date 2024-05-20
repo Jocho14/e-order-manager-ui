@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { get } from "../../services/ebook";
 
@@ -46,7 +47,14 @@ const OrderContent: React.FC<OrderContentProps> = (props) => {
                 <img src={item.image} className="order-details__image" />
                 <div className="order-details__links">
                   <p className="order-details__main-content">
-                    Ebook: {item.mainContent}
+                    Ebook:{" "}
+                    <Link
+                      to={item.mainContent}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      pdf
+                    </Link>
                   </p>
                   {!!item.additionalContent && (
                     <p className="order-details__additional-content">

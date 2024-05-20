@@ -28,11 +28,9 @@ export const getAll = async (): Promise<ProductCardProps[]> => {
     const response = await fetch(`${BACKEND_URL}/api/ebook/getAll`, {
       credentials: "include",
     });
-    console.log(response);
     if (response.ok) {
-      console.log("All ebooks retrieved");
       const data = await response.json();
-      console.log("data", data);
+      console.log(data);
       return data;
     } else {
       console.log("All ebooks fetching failed");

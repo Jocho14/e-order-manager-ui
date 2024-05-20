@@ -11,8 +11,6 @@ export interface CartProductProps {
   title: string;
 }
 
-const PRICE = 20;
-
 function CartProduct(props: CartProductProps) {
   const cart = useContext(CartContext);
   const [cartProduct, setCartProduct] = useState<CartProductProps>();
@@ -54,7 +52,7 @@ function CartProduct(props: CartProductProps) {
             className="details__remove-btn"
           ></button>
         </div>
-        <p className="cart-product__price">{PRICE}zł</p>
+        <p className="cart-product__price">{cartProduct.price}zł</p>
       </div>
     </>
   );

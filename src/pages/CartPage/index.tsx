@@ -27,8 +27,8 @@ const CartPage = () => {
                   key={currentProduct.id}
                   id={currentProduct.id}
                   price={currentProduct.price}
-                  imageUrl={currentProduct.imageUrl}
-                  name={currentProduct.name}
+                  image={currentProduct.image}
+                  title={currentProduct.title}
                 ></CartProduct>
               ))}
             </div>
