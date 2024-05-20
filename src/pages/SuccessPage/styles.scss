@@ -1,0 +1,34 @@
+@import "../../assets/styles/variables.scss";
+
+.success-page {
+  &__wrapper {
+    min-height: 100vh;
+    padding: 120px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    row-gap: 35px;
+  }
+
+  &__image {
+    width: 40px;
+  }
+
+  &__title {
+    font-size: 3rem;
+  }
+
+  &__info {
+    text-align: center;
+  }
+
+  &__span {
+    font-weight: 800;
+  }
+}

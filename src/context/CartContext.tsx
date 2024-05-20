@@ -50,8 +50,8 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         const newProduct: CartProductProps = {
           id: productToAdd.id,
           price: productToAdd.price,
-          name: productToAdd.title,
-          imageUrl: productToAdd.imageUrl,
+          title: productToAdd.title,
+          image: productToAdd.imageUrl,
         };
         setCartProducts([...cartProducts, newProduct]);
       }

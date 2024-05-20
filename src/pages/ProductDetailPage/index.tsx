@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { CartContext } from "../../context/CartContext";
@@ -6,6 +6,7 @@ import useResetScroll from "../../hooks/useResetScroll";
 import PopupButton from "../../components/PopupButton";
 import ProductDetailHighlights from "../../components/ProductDetailHighlights";
 import detailHighlightsData from "../../utils/detailHighlightsData";
+import { get } from "../../services/ebook";
 // import data from "../../utils/data";
 
 import "./styles.scss";
@@ -21,18 +22,34 @@ import "./styles.scss";
 //     tag: string;
 //     price: number; // Dodanie ceny
 //   };
-//   productDetails?: {
-//     title: string;
-//     author: string;
-//     description: string;
-//     tags: string[];
-//     price: number; // Dodanie ceny
-//   };
 // }
+
+interface ProductDetailPageProps {
+  title: string;
+  image: string;
+  //author: string;
+  rating: number;
+  tag: string;
+}
 
 const ProductDetailPage = () => {
   useResetScroll();
   const { productId } = useParams<{ productId: string }>();
+  const [details, setDetails] = useState<ProductDetailPageProps>();
+
+  useEffect(() => {
+    const fetchEbook = async () => {
+      try {
+        const ebookDetails = await get(Number(productId));
+        console.log(ebookDetails);
+        setDetails(ebookDetails);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchEbook();
+  }, []);
   //const [productDetails, setProductDetails] =
   //useState<ProductDetailPageProps | null>(null);
   // const productDetails = data.find(
@@ -57,9 +74,7 @@ const ProductDetailPage = () => {
           <div className="product-detail__view-image__wrapper">
             <img
               className="product-detail__view-image"
-              src={
-                "https://firebasestorage.googleapis.com/v0/b/test-2bed7.appspot.com/o/test%2Fimage4.webp?alt=media&token=c1100445-feef-4419-b6a7-5a7ed019e9c4"
-              }
+              src={details?.image}
               alt="product image"
             />
           </div>
@@ -77,9 +92,7 @@ const ProductDetailPage = () => {
           />
         </div>
         <div className="product-detail__info">
-          <h1 className="product-detail__info-title">
-            Tytuł{/*{productDetails.title}*/}
-          </h1>
+          <h1 className="product-detail__info-title">{details?.title}</h1>
           <div className="product-detail__info-author">
             Autor{/*{productDetails.author}*/}
           </div>

@@ -7,6 +7,10 @@
   min-height: 100vh;
 }
 
+.product-detail__view-image {
+  border-radius: $radius-medium;
+}
+
 .product-detail__view-image__wrapper {
   width: 100%;
   max-width: 400px;

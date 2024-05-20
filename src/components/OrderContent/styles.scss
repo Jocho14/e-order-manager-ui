@@ -1,0 +1,27 @@
+@import "../../assets/styles/variables.scss";
+
+.order-details {
+  &__list {
+    padding: 20px;
+  }
+  &__content-title {
+    font-weight: 800;
+    font-size: $copy-large;
+    padding-bottom: 30px;
+  }
+
+  &__element {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  &__image {
+    height: 100px;
+  }
+}

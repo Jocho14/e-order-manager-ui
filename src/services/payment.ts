@@ -33,3 +33,19 @@ export const createCheckoutSession = async (
     return null;
   }
 };
+
+export const fetchSessionStatus = async (sessionId: string) => {
+  try {
+    const res = await fetch(
+      `${STRIPE_URL}/session-status?session_id=${sessionId}`
+    );
+    if (!res.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Fetch error:", error);
+    throw error;
+  }
+};

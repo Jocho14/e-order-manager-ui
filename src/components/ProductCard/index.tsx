@@ -9,9 +9,9 @@ export interface ProductCardProps {
   id: number;
   imageUrl: string;
   title: string;
-  author: string;
+  // author: string;
   rating: number;
-  hasVideo: boolean;
+  // hasVideo: boolean;
   tag: string;
 }
 
@@ -33,7 +33,7 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
       <div className="card__content">
         <div className="card__info">
           <div className="card__info-title">{props.title}</div>
-          <div className="card__info-author">- {props.author}</div>
+          {/* <div className="card__info-author">- {props.author}</div> */}
         </div>
 
         <div className="card__details">
@@ -47,13 +47,13 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
               src={bookIcon}
               alt="Book"
             />
-            {props.hasVideo && (
+            {/* {props.hasVideo && (
               <img
                 className="card__options-video-icon"
                 src={videoIcon}
                 alt="Video"
               />
-            )}
+            )} */}
           </div>
         </div>
       </div>

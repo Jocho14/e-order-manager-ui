@@ -1,25 +1,39 @@
 import { useEffect, useState } from "react";
 
 import CardGroup, { CardGroupProps } from "../../components/CardGroup";
+import { ProductCardProps } from "../../components/ProductCard";
 import data from "../../utils/data";
 import { get, getAll } from "../../services/ebook";
 
 import "./styles.scss";
 
 const HomePage = () => {
-  const [ebooks, setEbooks] = useState<CardGroupProps>();
+  const [ebooks, setEbooks] = useState<ProductCardProps[]>([]);
 
   useEffect(() => {
     const fetchEbooks = async () => {
       try {
         const allEbooks = await getAll();
-        setEbooks(allEbooks);
+        console.log("shit ebooks: ", allEbooks);
+
+        if (allEbooks !== null) {
+          const cardGroupProps: CardGroupProps = {
+            cards: allEbooks.map((ebook: any) => ({
+              id: ebook.id,
+              imageUrl: ebook.image,
+              title: ebook.title,
+              rating: ebook.rating,
+              tag: ebook.tag, // Ensure the tag is included
+            })),
+            tag: "Fantasy", // Or another appropriate tag based on your needs
+          };
+          console.log("shit ebooks state", cardGroupProps.cards);
+          setEbooks(cardGroupProps.cards);
+        }
       } catch (err) {
         console.error(err);
-      } finally {
       }
     };
-    console.log(ebooks);
 
     fetchEbooks();
   }, []);
@@ -36,10 +50,9 @@ const HomePage = () => {
         </p>
       </div>
       <div className="home__content">
-        {/* <CardGroup cards={ebooks} tag={"Fantasy"} /> */}
-        <CardGroup cards={data} tag={"Top 20"} />
-        <CardGroup cards={data} tag={"Top 20"} />
-        <CardGroup cards={data} tag={"Top 20"} />
+        <CardGroup cards={ebooks} tag={"Fantasy"} />
+        <CardGroup cards={ebooks} tag={"Biografia"} />
+        <CardGroup cards={ebooks} tag={"Historia"} />
       </div>
     </div>
   );
