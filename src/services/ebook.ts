@@ -30,7 +30,6 @@ export const getAll = async (): Promise<ProductCardProps[]> => {
     });
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
       return data;
     } else {
       console.log("All ebooks fetching failed");

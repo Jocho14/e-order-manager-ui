@@ -37,8 +37,6 @@ const HomePage = () => {
     fetchEbooks();
   }, []);
 
-  console.log(ebooks);
-
   return (
     <div className="home">
       <div className="home__hero">

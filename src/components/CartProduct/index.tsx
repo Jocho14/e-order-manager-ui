@@ -20,7 +20,6 @@ function CartProduct(props: CartProductProps) {
     const fetchEbook = async () => {
       try {
         const ebookDetails = await get(Number(id));
-        console.log(ebookDetails);
         setCartProduct(ebookDetails);
       } catch (err) {
         console.log(err);

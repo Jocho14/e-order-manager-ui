@@ -39,9 +39,6 @@ const ReturnPage = () => {
   }
 
   if (status == "complete") {
-    console.log("complete status");
-    console.log(lineItems);
-    // console.log(lineItems[0].product_metadata.database_id);
     return <SuccessPage email={customerEmail} lineItems={lineItems} />;
   }
 

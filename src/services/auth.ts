@@ -26,7 +26,7 @@ export const login = async (email: string, password: string): Promise<void> => {
 
 export const validateSession = async (): Promise<User | null> => {
   try {
-    const response = await fetch(`${BACKEND_URL}/api/auth/validate-session`, {
+    const response = await fetch(`${BACKEND_URL}/api/auth/validate`, {
       credentials: "include",
     });
 

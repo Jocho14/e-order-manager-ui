@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import OrderProduct from "../OrderProduct";
 import { get } from "../../services/ebook";
 
 import "./styles.scss";
@@ -9,15 +10,16 @@ interface OrderContentProps {
   databaseIds: number[];
 }
 
-interface OrderEbookProps {
+export interface OrderEbookProps {
   title: string;
   image: string;
   mainContent: string;
-  additionalContent: string;
+  additionalContents: any[];
 }
 
 const OrderContent: React.FC<OrderContentProps> = (props) => {
   const [ebooks, setEbooks] = useState<OrderEbookProps[]>([]);
+
   useEffect(() => {
     const fetchEbooks = async () => {
       try {
@@ -36,36 +38,19 @@ const OrderContent: React.FC<OrderContentProps> = (props) => {
     <div className="order-details__wrapper">
       <div className="order-details__container">
         <div className="order-details__content">
-          {ebooks.length > 1 ? (
-            <p className="order-details__content-title">Kupione produkty</p>
+          {ebooks.length > 0 ? (
+            ebooks.map((ebook, index) => (
+              <OrderProduct
+                key={index}
+                title={ebook.title}
+                image={ebook.image}
+                mainContent={ebook.mainContent}
+                additionalContents={ebook.additionalContents}
+              />
+            ))
           ) : (
-            <p>Kupiony produkt</p>
+            <p>Ładowanie...</p>
           )}
-          {ebooks.map((item) => (
-            <div className="order-details__list">
-              <div className="order-details__element">
-                <img src={item.image} className="order-details__image" />
-                <div className="order-details__links">
-                  <p className="order-details__main-content">
-                    Ebook:{" "}
-                    <Link
-                      to={item.mainContent}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      pdf
-                    </Link>
-                  </p>
-                  {!!item.additionalContent && (
-                    <p className="order-details__additional-content">
-                      Dodatkowa zawartość: {item.additionalContent}
-                    </p>
-                  )}
-                </div>
-              </div>
-              <p className="order-details__title">{item.title}</p>
-            </div>
-          ))}
         </div>
       </div>
     </div>
