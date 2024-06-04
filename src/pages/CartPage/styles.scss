@@ -78,3 +78,40 @@
     background-color: $neutral;
   }
 }
+
+@media screen and (min-width: 300px) and (max-width: 1000px) {
+  .cart {
+    &__content {
+      display: grid;
+      grid-template-columns: 1fr;
+      max-width: 50px;
+    }
+
+    &__container {
+      padding-left: 10px;
+    }
+  }
+
+  .content {
+    &__products {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      row-gap: 50px;
+    }
+
+    &__finalize {
+      width: 100%;
+      margin-top: 50px;
+      margin-right: auto;
+    }
+  }
+
+  .finalize {
+    &__checkout-btn {
+    }
+
+    &__checkout-btn:hover {
+    }
+  }
+}
