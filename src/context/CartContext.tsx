@@ -3,12 +3,10 @@ import { createContext, useState, ReactNode, useEffect } from "react";
 import { CartProductProps } from "../components/CartProduct";
 import { get } from "../services/ebook";
 
-import data from "../utils/data";
-
 interface CartContextInterface {
   products: CartProductProps[];
   cartCount: number;
-  add: (id: number) => boolean;
+  add: (id: number) => Promise<Boolean>;
   remove: (id: number) => void;
   getTotalCost: () => number;
 }
@@ -16,7 +14,7 @@ interface CartContextInterface {
 const defaultContextValue: CartContextInterface = {
   products: [],
   cartCount: 0,
-  add: () => false,
+  add: async () => false,
   remove: () => {},
   getTotalCost: () => 0,
 };

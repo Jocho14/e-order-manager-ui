@@ -1,10 +1,9 @@
-import { BACKEND_DEV_URL } from "../constants/apiUrl";
+//import { BACKEND_DEV_URL } from "../constants/apiUrl";
 import { BACKEND_PRODUCTION_URL } from "../constants/apiUrl";
 
-import { CardGroupProps } from "..//components/CardGroup";
 import { ProductCardProps } from "../components/ProductCard";
 
-const BACKEND_URL = BACKEND_DEV_URL;
+const BACKEND_URL = BACKEND_PRODUCTION_URL;
 
 export const get = async (id: number): Promise<any> => {
   try {

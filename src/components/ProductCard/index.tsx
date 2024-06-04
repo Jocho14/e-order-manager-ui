@@ -1,7 +1,7 @@
 import React from "react";
 
 import starIcon from "../../assets/images/star-icon.svg";
-import videoIcon from "../../assets/images/video-icon.svg";
+//import videoIcon from "../../assets/images/video-icon.svg";
 import bookIcon from "../../assets/images/book-icon.svg";
 import "./styles.scss";
 

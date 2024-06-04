@@ -1,7 +1,7 @@
-import { STRIPE_DEV_URL } from "../constants/apiUrl";
+//import { STRIPE_DEV_URL } from "../constants/apiUrl";
 import { STRIPE_PRODUCTION_URL } from "../constants/apiUrl";
 
-const STRIPE_URL = STRIPE_DEV_URL;
+const STRIPE_URL = STRIPE_PRODUCTION_URL;
 
 interface Product {
   id: number;

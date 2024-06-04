@@ -30,7 +30,7 @@ const routes = [
       { path: "cart", element: <CartPage /> },
       { path: "checkout", element: <CheckoutPage /> },
       { path: "return", element: <ReturnPage /> },
-      { path: "success", element: <SuccessPage email="" /> },
+      { path: "success", element: <SuccessPage email="" lineItems={""} /> },
     ],
   },
   { path: "login", element: <LogInPage /> },

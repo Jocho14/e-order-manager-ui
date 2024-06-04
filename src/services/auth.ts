@@ -1,8 +1,8 @@
 import { User } from "../context/AuthContext";
-import { BACKEND_DEV_URL } from "../constants/apiUrl";
+//import { BACKEND_DEV_URL } from "../constants/apiUrl";
 import { BACKEND_PRODUCTION_URL } from "../constants/apiUrl";
 
-const BACKEND_URL = BACKEND_DEV_URL;
+const BACKEND_URL = BACKEND_PRODUCTION_URL;
 
 export const login = async (email: string, password: string): Promise<void> => {
   try {

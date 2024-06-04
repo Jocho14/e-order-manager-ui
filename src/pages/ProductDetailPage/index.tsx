@@ -57,7 +57,9 @@ const ProductDetailPage = () => {
   // );
   const cart = useContext(CartContext);
 
-  const [addToCartSuccess, setAddToCartSuccess] = useState(false);
+  const [addToCartSuccess, setAddToCartSuccess] = useState<boolean | null>(
+    null
+  );
   const [collapsed, setCollapsed] = useState<Boolean>(true);
 
   const toggleCollapsed = () => {
@@ -80,7 +82,7 @@ const ProductDetailPage = () => {
           </div>
           <PopupButton
             onClick={() =>
-              productId && setAddToCartSuccess(cart.add(Number(productId)))
+              productId && setAddToCartSuccess(!!cart.add(Number(productId)))
             }
             label={"Dodaj do koszyka"}
             message={

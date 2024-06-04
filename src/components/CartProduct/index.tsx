@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
+
 import { CartContext } from "../../context/CartContext";
-import data from "../../utils/data"; // Upewnij się, że ścieżka do danych jest poprawna
 import { get } from "../../services/ebook";
+
 import "./styles.scss";
 
 export interface CartProductProps {

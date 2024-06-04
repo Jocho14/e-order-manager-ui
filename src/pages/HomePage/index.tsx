@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 
 import CardGroup, { CardGroupProps } from "../../components/CardGroup";
 import { ProductCardProps } from "../../components/ProductCard";
-import data from "../../utils/data";
-import { get, getAll } from "../../services/ebook";
+import { getAll } from "../../services/ebook";
 
 import "./styles.scss";
 
